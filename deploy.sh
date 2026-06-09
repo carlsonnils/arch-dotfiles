@@ -30,7 +30,7 @@ copy() {
 
     if [ -e "$dst" ] && [ ! -L "$dst" ]; then
         warn "Backing up existing $dst → $dst.bak"
-        mv "$dst" "$dst.bak"
+        # mv "$dst" "$dst.bak"
     fi
 
     mkdir -p "$dst"
@@ -48,12 +48,12 @@ info "Dotfiles source: $DOTFILES_DIR"
 info "Config target:   $CONFIG_DIR"
 echo ""
 
-# --- Symlink each config -----------------------------------------------------
+# --- Copy each config -----------------------------------------------------
 copy hyprland    hypr
 copy waybar      waybar
-copy hyprlock    hyprlock
-copy hypridle    hypridle
-copy hyprpaper   hyprpaper
+copy hyprlock    hypr
+copy hypridle    hypr
+copy hyprpaper   hypr
 copy alacritty   alacritty
 copy mako        mako
 copy yazi        yazi
