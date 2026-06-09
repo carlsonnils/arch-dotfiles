@@ -1,0 +1,152 @@
+/* =============================================================================
+   Waybar Style — Kanagawa Theme
+   ============================================================================= */
+
+/* --- Kanagawa Palette ------------------------------------------------------- */
+@define-color bg0        #1F1F28;
+@define-color bg1        #2A2A37;
+@define-color bg2        #223249;
+@define-color bg3        #363646;
+@define-color fg         #DCD7BA;
+@define-color fg_dim     #727169;
+@define-color red        #C34043;
+@define-color orange     #FFA066;
+@define-color yellow     #C0A36E;
+@define-color green      #76946A;
+@define-color teal       #6A9589;
+@define-color blue       #7E9CD8;
+@define-color cyan       #7FB4CA;
+@define-color purple     #957FB8;
+@define-color pink       #D27E99;
+@define-color white      #C8C093;
+
+/* --- Global ----------------------------------------------------------------- */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background-color: alpha(@bg0, 0.92);
+    color: @fg;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* --- Workspaces ------------------------------------------------------------- */
+#workspaces {
+    margin: 0 6px;
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 2px 10px;
+    margin: 4px 2px;
+    color: @fg_dim;
+    background: @bg1;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    color: @fg;
+    background: @bg2;
+}
+
+#workspaces button.active {
+    color: @bg0;
+    background: @blue;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background: @red;
+    color: @fg;
+}
+
+/* --- Window title ----------------------------------------------------------- */
+#window {
+    color: @fg_dim;
+    padding: 0 10px;
+    font-style: italic;
+}
+
+/* --- Clock ------------------------------------------------------------------ */
+#clock {
+    color: @fg;
+    font-weight: bold;
+    padding: 0 12px;
+}
+
+/* --- Right modules — shared ------------------------------------------------- */
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#tray,
+#custom-power {
+    padding: 2px 10px;
+    margin: 4px 2px;
+    border-radius: 6px;
+    background: @bg1;
+    color: @fg;
+    transition: background 0.2s ease;
+}
+
+/* --- Individual module colors ----------------------------------------------- */
+#pulseaudio              { color: @cyan;   }
+#pulseaudio.muted        { color: @fg_dim; }
+
+#network                 { color: @blue;   }
+#network.disconnected    { color: @red;    }
+
+#bluetooth               { color: @purple; }
+#bluetooth.disabled      { color: @fg_dim; }
+
+#battery                 { color: @green;  }
+#battery.warning         { color: @yellow; }
+#battery.critical        { color: @red;    }
+#battery.charging        { color: @teal;   }
+
+#cpu                     { color: @orange; }
+#memory                  { color: @pink;   }
+#temperature             { color: @yellow; }
+#temperature.critical    { color: @red;    }
+#backlight               { color: @cyan;   }
+
+#tray {
+    background: transparent;
+    padding: 0 6px;
+}
+
+#tray > .passive        { -gtk-icon-effect: dim;        }
+#tray > .needs-attention { -gtk-icon-effect: highlight;
+                           background-color: @red;       }
+
+#custom-power {
+    color: @red;
+    font-size: 15px;
+    padding: 2px 12px;
+}
+
+/* --- Hover effects ---------------------------------------------------------- */
+#pulseaudio:hover,
+#network:hover,
+#bluetooth:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#custom-power:hover {
+    background: @bg2;
+}

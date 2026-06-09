@@ -1,0 +1,156 @@
+# =============================================================================
+# Alacritty Configuration — Kanagawa Theme
+# =============================================================================
+
+[general]
+import = []
+live_config_reload = true
+
+# --- Window ------------------------------------------------------------------
+[window]
+padding          = { x = 12, y = 10 }
+dynamic_padding  = false
+decorations      = "None"
+opacity          = 0.94
+blur             = true
+startup_mode     = "Windowed"
+title            = "Alacritty"
+dynamic_title    = true
+decorations_theme_variant = "Dark"
+
+# --- Scrolling ---------------------------------------------------------------
+[scrolling]
+history    = 10000
+multiplier = 5
+
+# --- Font --------------------------------------------------------------------
+[font]
+size = 13.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style  = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style  = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style  = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style  = "Bold Italic"
+
+# --- Bell --------------------------------------------------------------------
+[bell]
+animation = "Linear"
+duration  = 0
+color     = "#ffffff"
+
+# --- Selection ---------------------------------------------------------------
+[selection]
+save_to_clipboard = true
+
+# --- Cursor ------------------------------------------------------------------
+[cursor]
+style    = { shape = "Block", blinking = "On" }
+blink_interval   = 500
+unfocused_hollow = true
+
+# --- Terminal ----------------------------------------------------------------
+[terminal]
+osc52 = "CopyPaste"
+
+# --- Mouse -------------------------------------------------------------------
+[mouse]
+hide_when_typing = true
+
+# --- Kanagawa Color Scheme ---------------------------------------------------
+[colors.primary]
+background = "#1F1F28"
+foreground = "#DCD7BA"
+dim_foreground    = "#727169"
+bright_foreground = "#C8C093"
+
+[colors.cursor]
+text   = "#1F1F28"
+cursor = "#C8C093"
+
+[colors.vi_mode_cursor]
+text   = "#1F1F28"
+cursor = "#7E9CD8"
+
+[colors.selection]
+text       = "#C8C093"
+background = "#2D4F67"
+
+[colors.search.matches]
+foreground = "#1F1F28"
+background = "#C0A36E"
+
+[colors.search.focused_match]
+foreground = "#1F1F28"
+background = "#76946A"
+
+[colors.normal]
+black   = "#16161D"
+red     = "#C34043"
+green   = "#76946A"
+yellow  = "#C0A36E"
+blue    = "#7E9CD8"
+magenta = "#957FB8"
+cyan    = "#6A9589"
+white   = "#C8C093"
+
+[colors.bright]
+black   = "#727169"
+red     = "#E82424"
+green   = "#98BB6C"
+yellow  = "#E6C384"
+blue    = "#7FB4CA"
+magenta = "#938AA9"
+cyan    = "#7AA89F"
+white   = "#DCD7BA"
+
+[colors.dim]
+black   = "#0D0C0C"
+red     = "#8C4351"
+green   = "#49552A"
+yellow  = "#7E6540"
+blue    = "#364A82"
+magenta = "#54546D"
+cyan    = "#4E624B"
+white   = "#717C7C"
+
+# --- Keybindings -------------------------------------------------------------
+[[keyboard.bindings]]
+key   = "Return"
+mods  = "Control|Shift"
+action = "SpawnNewInstance"
+
+[[keyboard.bindings]]
+key   = "C"
+mods  = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key   = "V"
+mods  = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key   = "Plus"
+mods  = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key   = "Minus"
+mods  = "Control"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key   = "Key0"
+mods  = "Control"
+action = "ResetFontSize"

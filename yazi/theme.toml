@@ -1,0 +1,96 @@
+# =============================================================================
+# Yazi Theme — Kanagawa
+# ~/.config/yazi/theme.toml
+# =============================================================================
+
+[manager]
+cwd = { fg = "#7E9CD8" }
+
+hovered         = { fg = "#1F1F28", bg = "#7E9CD8" }
+preview_hovered = { underline = true }
+
+find_keyword  = { fg = "#C0A36E", bold = true, italic = true, underline = true }
+find_position = { fg = "#FFA066", bg = "reset", bold = true, italic = true }
+
+marker_selected = { fg = "#76946A", bg = "#76946A" }
+marker_copied   = { fg = "#C0A36E", bg = "#C0A36E" }
+marker_cut      = { fg = "#C34043", bg = "#C34043" }
+
+tab_active   = { fg = "#1F1F28", bg = "#7E9CD8" }
+tab_inactive = { fg = "#DCD7BA", bg = "#2A2A37" }
+tab_width    = 1
+
+border_symbol = "│"
+border_style  = { fg = "#363646" }
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#2A2A37", bg = "#2A2A37" }
+
+mode_normal = { fg = "#1F1F28", bg = "#7E9CD8",  bold = true }
+mode_select = { fg = "#1F1F28", bg = "#76946A",  bold = true }
+mode_unset  = { fg = "#1F1F28", bg = "#957FB8",  bold = true }
+
+progress_label  = { fg = "#DCD7BA", bold = true }
+progress_normal = { fg = "#7E9CD8", bg = "#2A2A37" }
+progress_error  = { fg = "#C34043", bg = "#2A2A37" }
+
+permissions_t = { fg = "#76946A" }
+permissions_r = { fg = "#C0A36E" }
+permissions_w = { fg = "#C34043" }
+permissions_x = { fg = "#6A9589" }
+permissions_s = { fg = "#727169" }
+
+[input]
+border   = { fg = "#7E9CD8" }
+title    = { fg = "#7E9CD8" }
+value    = { fg = "#DCD7BA" }
+selected = { reversed = true }
+
+[completion]
+border   = { fg = "#7E9CD8" }
+active   = { bg = "#2A2A37" }
+inactive = { fg = "#727169" }
+
+[tasks]
+border  = { fg = "#7E9CD8" }
+title   = {}
+hovered = { underline = true }
+
+[which]
+mask            = { bg = "#1F1F28" }
+cand            = { fg = "#7FB4CA" }
+rest            = { fg = "#727169" }
+desc            = { fg = "#957FB8" }
+separator       = "  "
+separator_style = { fg = "#363646" }
+
+[help]
+on      = { fg = "#7FB4CA" }
+exec    = { fg = "#957FB8" }
+desc    = { fg = "#727169" }
+hovered = { bg = "#2A2A37", bold = true }
+footer  = { fg = "#1F1F28", bg = "#7E9CD8" }
+
+[filetype]
+rules = [
+    # Images
+    { mime = "image/*",      fg = "#D27E99" },
+    # Video
+    { mime = "video/*",      fg = "#957FB8" },
+    # Audio
+    { mime = "audio/*",      fg = "#76946A" },
+    # Archives
+    { mime = "application/zip",            fg = "#C34043" },
+    { mime = "application/gzip",           fg = "#C34043" },
+    { mime = "application/x-tar",          fg = "#C34043" },
+    { mime = "application/x-bzip2",        fg = "#C34043" },
+    { mime = "application/x-7z-compressed",fg = "#C34043" },
+    { mime = "application/x-rar",          fg = "#C34043" },
+    # Documents
+    { mime = "application/pdf",            fg = "#FFA066" },
+    # Fallback
+    { name = "*",  fg = "#DCD7BA" },
+    { name = "*/", fg = "#7E9CD8" },
+]

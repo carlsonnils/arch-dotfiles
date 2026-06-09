@@ -1,0 +1,163 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 4,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "battery",
+        "cpu",
+        "memory",
+        "temperature",
+        "backlight",
+        "tray",
+        "custom/power"
+    ],
+
+    // -------------------------------------------------------------------------
+    // Left modules
+    // -------------------------------------------------------------------------
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1":  "一",
+            "2":  "二",
+            "3":  "三",
+            "4":  "四",
+            "5":  "五",
+            "6":  "六",
+            "7":  "七",
+            "8":  "八",
+            "9":  "九",
+            "10": "十",
+            "active":  "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 5
+        },
+        "on-click": "activate"
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 60,
+        "separate-outputs": true
+    },
+
+    // -------------------------------------------------------------------------
+    // Center modules
+    // -------------------------------------------------------------------------
+
+    "clock": {
+        "format": " {:%a %b %d  %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 60
+    },
+
+    // -------------------------------------------------------------------------
+    // Right modules
+    // -------------------------------------------------------------------------
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 muted",
+        "format-icons": {
+            "headphone":  "󰋋",
+            "hands-free": "󰋎",
+            "headset":    "󰋎",
+            "phone":      "",
+            "portable":   "",
+            "car":        "",
+            "default":    ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+
+    "network": {
+        "format-wifi":          " {essid} ({signalStrength}%)",
+        "format-ethernet":      "󰈀 {ipaddr}",
+        "format-disconnected":  "󰤭 disconnected",
+        "format-linked":        "󰈀 {ifname} (no IP)",
+        "tooltip-format":       "{ifname}: {ipaddr}/{cidr}\n{gwaddr}",
+        "on-click":             "nm-connection-editor",
+        "interval":             30
+    },
+
+    "bluetooth": {
+        "format":           " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format":   "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
+    },
+
+    "battery": {
+        "states": {
+            "good":     95,
+            "warning":  30,
+            "critical": 15
+        },
+        "format":           "{icon} {capacity}%",
+        "format-charging":  "󰂄 {capacity}%",
+        "format-plugged":   "󰚥 {capacity}%",
+        "format-icons":     ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "interval":         60
+    },
+
+    "cpu": {
+        "format":   "󰻠 {usage}%",
+        "tooltip":  true,
+        "interval": 5
+    },
+
+    "memory": {
+        "format":   "󰍛 {used:0.1f}G",
+        "tooltip-format": "{used:0.1f}G / {total:0.1f}G used",
+        "interval": 10
+    },
+
+    "temperature": {
+        "critical-threshold": 80,
+        "format":          " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "interval": 10
+    },
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up":   "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    "tray": {
+        "spacing": 8,
+        "icon-size": 16
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "bash -c 'case $(printf \"Lock\nReboot\nShutdown\" | wofi --dmenu -p \"Power\") in Lock) hyprlock;; Reboot) systemctl reboot;; Shutdown) systemctl poweroff;; esac'"
+    }
+}

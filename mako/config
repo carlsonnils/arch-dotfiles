@@ -1,0 +1,50 @@
+# =============================================================================
+# Mako Configuration — Kanagawa Theme
+# =============================================================================
+
+# --- Layout ------------------------------------------------------------------
+anchor         = top-right
+margin         = 10
+padding        = 12,16
+border-size    = 2
+border-radius  = 8
+max-icon-size  = 48
+icons          = true
+max-visible    = 5
+sort           = -time
+
+# --- Appearance --------------------------------------------------------------
+width          = 340
+height         = 100
+
+background-color = #1F1F28ee
+text-color       = #DCD7BA
+border-color     = #7E9CD8
+progress-color   = over #76946Aaa
+
+font = JetBrainsMono Nerd Font 12
+
+# --- Timing ------------------------------------------------------------------
+default-timeout = 5000
+ignore-timeout  = 0
+
+# --- Urgency: low ------------------------------------------------------------
+[urgency=low]
+background-color = #1F1F28dd
+text-color       = #727169
+border-color     = #2A2A37
+default-timeout  = 3000
+
+# --- Urgency: normal ---------------------------------------------------------
+[urgency=normal]
+background-color = #1F1F28ee
+text-color       = #DCD7BA
+border-color     = #7E9CD8
+default-timeout  = 5000
+
+# --- Urgency: high -----------------------------------------------------------
+[urgency=high]
+background-color = #1F1F28ff
+text-color       = #DCD7BA
+border-color     = #C34043
+default-timeout  = 0
