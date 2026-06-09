@@ -19,7 +19,7 @@ success() { echo -e "${GREEN}${BOLD}[OK]${NC}   $*"; }
 warn()    { echo -e "${YELLOW}${BOLD}[WARN]${NC} $*"; }
 error()   { echo -e "${RED}${BOLD}[ERR]${NC}  $*"; exit 1; }
 
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR=$PWD
 CONFIG_DIR="$HOME/.config"
 
 copy() {
@@ -33,8 +33,8 @@ copy() {
         mv "$dst" "$dst.bak"
     fi
 
-    mkdir -p dst
-    cp -r src/* dst
+    mkdir -p "$dst"
+    cp -rv "$src"/* "$dst"
     success "Copied $src -> $dst"
 }
 
@@ -57,6 +57,7 @@ copy hyprpaper   hyprpaper
 copy alacritty   alacritty
 copy mako        mako
 copy yazi        yazi
+copy git         git
 
 # --- Wallpaper placeholder ---------------------------------------------------
 WALLPAPER_DIR="$CONFIG_DIR/hyprpaper"
