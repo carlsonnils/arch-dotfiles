@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 # Dotfiles Deploy Script
-# Symlinks all configs into ~/.config
+# Copies all configs into ~/.config
 # Run from the dotfiles directory: ./deploy.sh
 # =============================================================================
 
@@ -22,7 +22,7 @@ error()   { echo -e "${RED}${BOLD}[ERR]${NC}  $*"; exit 1; }
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_DIR="$HOME/.config"
 
-link() {
+copy() {
     local src="$DOTFILES_DIR/$1"
     local dst="$CONFIG_DIR/$2"
 
@@ -33,8 +33,6 @@ link() {
         mv "$dst" "$dst.bak"
     fi
 
-    # ln -sfn "$src" "$dst"
-    # success "Linked $1 → $dst"
     mkdir -p dst
     cp -r src/* dst
     success "Copied $src -> $dst"
@@ -51,14 +49,14 @@ info "Config target:   $CONFIG_DIR"
 echo ""
 
 # --- Symlink each config -----------------------------------------------------
-link hyprland    hypr
-link waybar      waybar
-link hyprlock    hyprlock
-link hypridle    hypridle
-link hyprpaper   hyprpaper
-link alacritty   alacritty
-link mako        mako
-link yazi        yazi
+copy hyprland    hypr
+copy waybar      waybar
+copy hyprlock    hyprlock
+copy hypridle    hypridle
+copy hyprpaper   hyprpaper
+copy alacritty   alacritty
+copy mako        mako
+copy yazi        yazi
 
 # --- Wallpaper placeholder ---------------------------------------------------
 WALLPAPER_DIR="$CONFIG_DIR/hyprpaper"
