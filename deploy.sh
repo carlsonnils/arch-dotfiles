@@ -29,7 +29,8 @@ copy() {
     mkdir -p "$(dirname "$dst")"
 
     if [ -e "$dst" ] && [ ! -L "$dst" ]; then
-        warn "Backing up existing $dst → $dst.bak"
+	info "Config Dir already exists: $dst" 
+        # info "Backing up existing $dst → $dst.bak"
         # mv "$dst" "$dst.bak"
     fi
 
